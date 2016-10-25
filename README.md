@@ -1,4 +1,10 @@
 SCRecorder
+
+
+此库完全在[SCRecorder](https://github.com/rFlex/SCRecorder)fork更改，因为原作者似乎停止维护了，所以fork了一份并抽时间进行维护.
+
+This library is completely changed at [SCRecorder] (https://github.com/rFlex/SCRecorder) fork, because the original author seems to stop the maintenance, so a fork and take the time to maintain.
+
 ===============
 
 <img src="filters.gif" width="230" height="408" />
@@ -58,7 +64,7 @@ Easy and quick
 ```objective-c
 // Create the recorder
 SCRecorder *recorder = [SCRecorder recorder]; // You can also use +[SCRecorder sharedRecorder]
-	
+
 // Start running the flow of buffers
 if (![recorder startRunning]) {
 	NSLog(@"Something wrong there: %@", recorder.error);
@@ -124,7 +130,7 @@ audio.bitrate = 128000; // 128kbit/s
 // Number of audio output channels
 audio.channelsCount = 1; // Mono output
 // The sample rate of the audio output
-audio.sampleRate = 0; // Use same input 
+audio.sampleRate = 0; // Use same input
 // The format of the audio output
 audio.format = kAudioFormatMPEG4AAC; // AAC
 
@@ -138,20 +144,20 @@ Playing back your recording
 
 SCRecorder provides two easy classes to play a video/audio asset: [SCPlayer](Library/Sources/SCPlayer.h) and [SCVideoPlayerView](Library/Sources/SCVideoPlayerView.h).
 
-SCPlayer is a subclass of AVPlayer that adds some methods to make it easier to use. Plus, it also adds the ability to use a filter renderer, to apply a live filter on a video. 
+SCPlayer is a subclass of AVPlayer that adds some methods to make it easier to use. Plus, it also adds the ability to use a filter renderer, to apply a live filter on a video.
 
 ```objective-c
 SCRecordSession *recordSession = ... // Some instance of a record session
-	
+
 // Create an instance of SCPlayer
 SCPlayer *player = [SCPlayer player];
-	
+
 // Set the current playerItem using an asset representing the segments
 // of an SCRecordSession
 [player setItemByAsset:recordSession.assetRepresentingSegments];
-	
+
 UIView *view = ... // Some view that will get the video
-	
+
 // Create and add an AVPlayerLayer
 AVPlayerLayer *playerLayer = [AVPlayerLayer playerLayerWithPlayer:player];
 playerLayer.frame = view.bounds;
@@ -159,13 +165,13 @@ playerLayer.frame = view.bounds;
 
 // Start playing the asset and render it into the view
 [player play];
-	
+
 // Render the video directly through a filter
 SCFilterImageView *filterView = [[SCFilterImageView alloc] initWithFrame:view.bounds];
 filterVieww.filter = [SCFilter filterWithCIFilterName:@"CIPhotoEffectInstant"];
-	
+
 player.SCImageView = filterView;
-	
+
 [view addSubview:filterView];
 ```
 
@@ -173,13 +179,13 @@ SCVideoPlayerView is a subclass of UIView that holds an SCPlayer. The video buff
 
 ```objective-c
 SCRecordSession *recordSession = ... // Some instance of a record session
-	
+
 SCVideoPlayerView *playerView = // Your instance somewhere
-	
+
 // Set the current playerItem using an asset representing the segments
 // of an SCRecordSession
 [playerView.player setItemByAsset:recordSession.assetRepresentingSegments];
-	
+
 // Start playing the asset and render it into the view
 [playerView.player play];
 ```
@@ -215,7 +221,7 @@ UIImage *thumbnail = segment.thumbnail;
 // Get duration of this segment
 CMTime duration = segment.duration;
 
-```	
+```
 
 Exporting your recording
 ---------------------
@@ -231,7 +237,7 @@ First, you can use [SCRecordSession mergeSegmentsUsingPreset:completionHandler:]
 	if (error == nil) {
 	   	// Easily save to camera roll
 		[url saveToCameraRollWithCompletion:^(NSString *path, NSError *saveError) {
-		     
+
 		}];
 	} else {
 		NSLog(@"Bad things happened: %@", error);
