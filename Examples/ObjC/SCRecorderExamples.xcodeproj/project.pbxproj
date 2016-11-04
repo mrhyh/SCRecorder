@@ -530,7 +530,7 @@
 					"-all_load",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.co1rsin.SCRecorderExamples;
+				PRODUCT_BUNDLE_IDENTIFIER = me.co1rs11in.SCRecorderExamples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -561,7 +561,7 @@
 					"-all_load",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.co1rsin.SCRecorderExamples;
+				PRODUCT_BUNDLE_IDENTIFIER = me.co1rs11in.SCRecorderExamples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;

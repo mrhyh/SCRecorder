@@ -299,7 +299,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130" y="188"/>
+            <point key="canvasLocation" x="116" y="-1"/>
         </scene>
         <!--Video Player View Controller-->
         <scene sceneID="nAI-tE-muv">
